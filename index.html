@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>404 - Không tìm thấy trang | T4VN Pages</title>
+    <meta name="description" content="Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển. Quay lại trang chủ T4VN để tiếp tục.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://404.t4vn.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="404 - Không tìm thấy trang | T4VN Pages">
+    <meta property="og:description" content="Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://404.t4vn.com/">
+    <meta property="og:site_name" content="T4VN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="404 - Không tìm thấy trang | T4VN Pages">
+    <meta name="twitter:description" content="Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "404 - Không tìm thấy trang",
+        "description": "Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "T4VN",
+            "url": "https://t4vn.com"
+        }
+    }
+    </script>
+
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #6c5ce7;
+            --primary-light: #a29bfe;
+            --accent: #00cec9;
+            --bg-dark: #0c0c1d;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --text: #e2e2e2;
+            --text-muted: #8a8a9a;
+            --glow: rgba(108, 92, 231, 0.35);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ===== Animated Background ===== */
+        .bg-stars {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-stars .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--dur) ease-in-out infinite alternate;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: var(--max-opacity); transform: scale(1); }
+        }
+
+        .bg-gradient-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            animation: float 8s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -100px; left: -100px;
+            opacity: 0.3;
+        }
+
+        .orb-2 {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            bottom: -80px; right: -80px;
+            opacity: 0.2;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -20px) scale(1.1); }
+        }
+
+        /* ===== Main Content ===== */
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 640px;
+            width: 100%;
+        }
+
+        /* Logo */
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            animation: fadeDown 0.6s ease forwards;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* 404 Number */
+        .error-code {
+            font-size: clamp(7rem, 20vw, 12rem);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.15s forwards;
+            user-select: none;
+        }
+
+        .error-code::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 30px;
+            background: var(--glow);
+            filter: blur(30px);
+            border-radius: 50%;
+        }
+
+        /* Glitch effect on hover */
+        .error-code:hover {
+            animation: glitch 0.3s ease;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(3px, -3px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(2px, 2px); }
+        }
+
+        /* Astronaut SVG */
+        .astronaut-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 1.5rem auto;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.3s forwards;
+        }
+
+        .astronaut-wrapper svg {
+            width: 100%;
+            height: 100%;
+            animation: drift 6s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-12px) rotate(3deg); }
+            75% { transform: translateY(8px) rotate(-2deg); }
+        }
+
+        /* Text */
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.45s forwards;
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.55s forwards;
+        }
+
+        .description a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+            transition: border-color 0.2s;
+        }
+
+        .description a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* Buttons */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.65s forwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px var(--glow);
+        }
+
+        .btn-outline {
+            background: var(--bg-card);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 1.5rem;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.8s forwards;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.3rem; }
+            .description { font-size: 0.95rem; }
+            .astronaut-wrapper { width: 120px; height: 120px; }
+            .actions { flex-direction: column; align-items: center; }
+            .btn { width: 100%; justify-content: center; max-width: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-stars" id="stars" aria-hidden="true"></div>
+    <div class="bg-gradient-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-gradient-orb orb-2" aria-hidden="true"></div>
+
+    <main class="container" role="main">
+        <!-- Logo -->
+        <a href="https://t4vn.com/" class="logo" aria-label="Về trang chủ T4VN">
+            <img src="https://404.t4vn.com/assets/logo.svg" alt="T4VN Logo" width="32" height="32">
+            T4VN
+        </a>
+
+        <!-- 404 Code -->
+        <div class="error-code" aria-hidden="true">404</div>
+
+        <!-- Floating Astronaut -->
+        <div class="astronaut-wrapper" aria-hidden="true">
+            <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Tether line -->
+                <path d="M80 140 Q60 120 50 90 Q45 70 55 55" stroke="#a29bfe" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+                <!-- Body -->
+                <ellipse cx="80" cy="82" rx="22" ry="28" fill="#e2e2e2" stroke="#ccc" stroke-width="1"/>
+                <!-- Backpack -->
+                <rect x="56" y="68" width="8" height="24" rx="3" fill="#8a8a9a"/>
+                <!-- Helmet -->
+                <circle cx="80" cy="52" r="20" fill="#e2e2e2" stroke="#ccc" stroke-width="1"/>
+                <!-- Visor -->
+                <ellipse cx="80" cy="52" rx="14" ry="13" fill="url(#visor-grad)"/>
+                <!-- Visor shine -->
+                <ellipse cx="74" cy="47" rx="4" ry="3" fill="rgba(255,255,255,0.3)" transform="rotate(-15 74 47)"/>
+                <!-- Left arm -->
+                <path d="M58 78 Q45 72 40 80 Q38 85 42 88" stroke="#e2e2e2" stroke-width="6" stroke-linecap="round" fill="none"/>
+                <!-- Right arm (waving) -->
+                <path d="M102 78 Q115 68 118 58 Q120 52 116 50" stroke="#e2e2e2" stroke-width="6" stroke-linecap="round" fill="none">
+                    <animateTransform attributeName="transform" type="rotate" values="0 102 78;-8 102 78;0 102 78;8 102 78;0 102 78" dur="2s" repeatCount="indefinite"/>
+                </path>
+                <!-- Glove on waving hand -->
+                <circle cx="116" cy="50" r="5" fill="#a29bfe">
+                    <animateTransform attributeName="transform" type="rotate" values="0 102 78;-8 102 78;0 102 78;8 102 78;0 102 78" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <!-- Left leg -->
+                <path d="M70 108 Q65 125 60 132" stroke="#e2e2e2" stroke-width="6" stroke-linecap="round" fill="none"/>
+                <!-- Right leg -->
+                <path d="M90 108 Q95 125 100 132" stroke="#e2e2e2" stroke-width="6" stroke-linecap="round" fill="none"/>
+                <!-- Stars around -->
+                <circle cx="25" cy="30" r="2" fill="#fff" opacity="0.6">
+                    <animate attributeName="opacity" values="0.6;0.1;0.6" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="140" cy="25" r="1.5" fill="#fff" opacity="0.4">
+                    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="135" cy="130" r="2" fill="#00cec9" opacity="0.5">
+                    <animate attributeName="opacity" values="0.5;0.15;0.5" dur="4s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="20" cy="120" r="1.5" fill="#a29bfe" opacity="0.5">
+                    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <defs>
+                    <linearGradient id="visor-grad" x1="66" y1="40" x2="94" y2="64">
+                        <stop stop-color="#6c5ce7"/>
+                        <stop offset="1" stop-color="#00cec9"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Heading & Description -->
+        <h1>Ối! Trang này không tồn tại</h1>
+        <p class="description">
+            Có vẻ bạn đã lạc vào không gian. Trang bạn tìm kiếm không tồn tại hoặc đã được di chuyển.<br>
+            Hãy quay lại hoặc liên hệ
+            <a href="mailto:thientu@t4vn.com" title="Liên hệ quản trị viên T4VN">Quản trị viên</a> nếu cần hỗ trợ.
+        </p>
+
+        <!-- Action Buttons -->
+        <nav class="actions" aria-label="Điều hướng">
+            <a href="https://t4vn.com/" class="btn btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                Về trang chủ
+            </a>
+            <a href="mailto:thientu@t4vn.com" class="btn btn-outline">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Liên hệ hỗ trợ
+            </a>
+        </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 <a href="https://t4vn.com/">T4VN</a>. All rights reserved.</p>
+    </footer>
+
+    <!-- Generate Stars Background -->
+    <script>
+        (function() {
+            const container = document.getElementById('stars');
+            const count = 80;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+                star.style.setProperty('--max-opacity', (0.3 + Math.random() * 0.7).toFixed(2));
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.width = star.style.height = (1 + Math.random() * 2) + 'px';
+                container.appendChild(star);
+            }
+        })();
+    </script>
+</body>
+</html>
